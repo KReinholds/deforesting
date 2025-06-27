@@ -18,8 +18,23 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
+        'phone',
+        'client_type',
         'password',
+        'company_name',
+        'company_reg_no',
+        'subscription_plan',
+        'subscribed_at',
+        'subscription_expires_at',
+        'is_subscribed',
+    ];
+
+    protected $casts = [
+        'is_subscribed' => 'boolean',
+        'subscription_expires_at' => 'datetime',
+        'subscribed_at' => 'datetime',
     ];
 
     /**

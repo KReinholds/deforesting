@@ -14,6 +14,13 @@ return [
     |
     */
 
+    'makecommerce' => [
+        'shop_id' => env('MAKECOMMERCE_SHOP_ID'),
+        'public_key' => env('MAKECOMMERCE_PUBLIC_KEY'),
+        'secret_key' => env('MAKECOMMERCE_SECRET_KEY'),
+        'test_mode' => env('MAKECOMMERCE_TEST_MODE', true),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
