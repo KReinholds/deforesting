@@ -208,14 +208,16 @@
   </h1>
   <div class="grid md:grid-cols-3 sm:grid-cols-2 md:gap-14 gap-4">
     {{-- Pakalpojums 1 --}}
-    <a href="/atmezosana">
+    
     <div class="flex flex-col items-center rounded-sm bg-red border-2 border-degreen">
+      <a href="/atmezosana">
     <img class="object-cover border-b-2 border-degreen" src="/img/atmezosana.png" alt="">
     <h3 class="text-xl text-degray uppercase text-center py-4 px-4">
       Atmezošana
     </h3> 
+  </a>
   </div>
-    </a>
+   
     {{-- Pakalpojums 2 --}}
   <div class="flex flex-col items-center rounded-sm bg-red border-2 border-degreen">
     <img class="object-cover border-b-2 border-degreen" src="/img/pakalpojumi-celmi.png" alt="">
