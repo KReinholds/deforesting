@@ -3,7 +3,7 @@
 
 {{-- Hero --}}
 <div class="w-full h-96 bg-center bg-cover"
-    style="background-image: url(http://deforesting.test/img/mezs-panoramic.jpg);">
+    style="background-image: url(/img/mezs-panoramic.jpg);">
     <div class="container h-full mx-auto">
         <div class="h-full grid w-2/3 mx-auto content-end">
             <div class="content-end">
@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="w-full bg-gray-100 bg-[url('/img/mezs-panoramic.jpg')]">
+<div class="w-full bg-gray-100">
     <div class="container mx-auto py-20">
         <div class="grid w-100 md:w-2/3 mx-auto">
                 <p class="text-base text-center">

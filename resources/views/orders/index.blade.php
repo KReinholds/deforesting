@@ -2,7 +2,7 @@
 
 {{-- Hero --}}
 <div class="w-full h-96 bg-center bg-cover"
-    style="background-image: url(http://deforesting.test/img/pasutijumi-hero-50m.jpg);">
+    style="background-image: url(/img/pasutijumi-hero-50m.jpg);">
     <div class="container h-full mx-auto px-4">
         <div class="h-full grid w-full mx-auto content-end">
             <div class="content-end">

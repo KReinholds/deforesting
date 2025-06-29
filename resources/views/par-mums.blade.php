@@ -2,7 +2,7 @@
 
 {{-- Hero --}}
 <div class="w-full h-96 bg-center bg-cover"
-    style="background-image: url(http://deforesting.test/img/par-mums-hero.jpg);">
+    style="background-image: url(/img/par-mums-hero.jpg);">
     <div class="container h-full mx-auto">
         <div class="h-full grid w-2/3 mx-auto content-end">
             <div class="content-end">
