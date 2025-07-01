@@ -22,11 +22,15 @@ class CategorySeeder extends Seeder
             'KOMPLEKSAIS PAKALPOJUMS',
         ];
 
+        // foreach ($categories as $name) {
+        //     Category::create([
+        //         'name' => $name,
+        //         'description' => null,
+        //     ]);
+        // }
+
         foreach ($categories as $name) {
-            Category::create([
-                'name' => $name,
-                'description' => null,
-            ]);
+            Category::firstOrCreate(['name' => $name], ['description' => null]);
         }
     }
 }

@@ -239,7 +239,7 @@
 
 
 {{-- Pagination --}}
-  <nav class="mt-10" aria-label="Page navigation example">
+  {{-- <nav class="mt-10" aria-label="Page navigation example">
     <ul class="flex items-center justify-center -space-x-px h-10 text-base">
       <li>
         <a href="#" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500   rounded-s-lg hover:bg-gray-100 hover:text-gray-700">
@@ -273,7 +273,7 @@
         </a>
       </li>
     </ul>
-  </nav>
+  </nav> --}}
   
 
 
