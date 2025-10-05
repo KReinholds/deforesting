@@ -65,7 +65,13 @@
             <img class="h-4 self-center" src="/img/arrow-green.png" alt="">
           </div>
         
-        <p class="text-degray">Aktīvs līdz {{ $order->created_at->addWeeks(2)->format('d.m.Y H:i') }} </p>
+        @if($order->is_active)
+          <p class="text-degray">
+            Aktīvs līdz {{ $order->active_until->format('d.m.Y H:i') }}
+          </p>
+        @else
+          <p class="text-red-600">Beidzies</p>
+        @endif
       </p>
       </div>
       <div class="basis-full md:basis-2/6 self-center text-center">

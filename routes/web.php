@@ -67,13 +67,15 @@ Route::patch('/offers/{offer}/status', [OfferController::class, 'changeStatus'])
 
 
 
-
-
 Route::view('/subscription', 'subscription.index')->name('subscription.index');
 Route::post('/client/subscription/delete', [\App\Http\Controllers\SubscriptionController::class, 'delete'])
     ->name('subscription.delete')
     ->middleware(['auth']);
 
+// Addmin Dashboard
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
 
 // Secure file upload for auth users and admin
 Route::get('/attachments/{attachment}', function (OrderAttachment $attachment) {
