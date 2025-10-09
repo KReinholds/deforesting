@@ -7,6 +7,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AdminUserController;
 
 // ✅ Authenticated users can view/create their own orders
 Route::middleware(['auth'])->group(function () {
@@ -75,6 +78,37 @@ Route::post('/client/subscription/delete', [\App\Http\Controllers\SubscriptionCo
 // Addmin Dashboard
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
+// Admin Category
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/categories', [AdminCategoryController::class, 'index'])
+        ->name('categories'); // ← single name, no .index
+});
+// Admin Orders
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders');
+});
+// Admin card in show orders
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::patch('/orders/{order}/close',   [AdminOrderController::class, 'close'])->name('orders.close');
+    Route::delete('/orders/{order}',        [AdminOrderController::class, 'destroy'])->name('orders.destroy');
+    Route::get('/orders/{order}/documents', [AdminOrderController::class, 'downloadDocuments'])->name('orders.documents.download');
+});
+// Admin Users
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    // existing routes like dashboard, orders, categories...
+
+    Route::get('/users', [AdminUserController::class, 'index'])->name('users');
+    Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/client/orders', [OrderController::class, 'clientIndex'])
+        ->name('client.orders'); // Aktīvie
+
+    Route::get('/orders/archive', [OrderController::class, 'archive'])
+        ->name('orders.archive'); // Arhīvs
 });
 
 // Secure file upload for auth users and admin

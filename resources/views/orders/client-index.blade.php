@@ -18,7 +18,7 @@
       <a href="{{ route('orders.create-order') }}">IZVEIDOT PASŪTĪJUMU</a>
     </p>
     <p class="text-lg text-degreenlight">
-      <a href="/client/orders">AKTĪVIE PASŪTĪJUMI</a>
+       <a href="{{ route('client.orders') }}">AKTĪVIE PASŪTĪJUMI</a>
     </p>
     <p class="text-lg text-degreen">
       <a href="{{ route('orders.archive') }}">PASŪTĪJUMU ARHĪVS</a>
@@ -70,7 +70,7 @@
             Aktīvs līdz {{ $order->active_until->format('d.m.Y H:i') }}
           </p>
         @else
-          <p class="text-red-600">Beidzies</p>
+          <p class="text-red-600">Termiņš beidzies</p>
         @endif
       </p>
       </div>

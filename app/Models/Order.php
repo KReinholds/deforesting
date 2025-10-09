@@ -55,7 +55,21 @@ class Order extends Model
     // (optional) scope used in admin categories too
     public function scopeActive($q)
     {
-        return $q->where('status', '!=', 'completed')
+        // active = not archived/completed AND newer than 2 weeks
+        return $q->whereNotIn('status', ['completed', 'archived'])
             ->where('created_at', '>', now()->subWeeks(2));
+    }
+
+    public function scopeArchived($q)
+    {
+        // archived = archived/completed OR older than 2 weeks
+        return $q->where(function ($qq) {
+            $qq->whereIn('status', ['completed', 'archived'])
+                ->orWhere('created_at', '<=', now()->subWeeks(2));
+        });
+    }
+    public function attachments()
+    {
+        return $this->hasMany(\App\Models\OrderAttachment::class);
     }
 }
